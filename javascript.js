@@ -1,7 +1,8 @@
+// get container object
 const container = document.querySelector('.container');
 
-var num = 16;
-var numBox = (num * num) + 1; 
+//initialize number of grid size and the slider display
+var num = 10;
 var slider = document.getElementById("myRange");
 var output = document.getElementById("demo");
 slider.oninput = function() {
@@ -9,16 +10,19 @@ slider.oninput = function() {
 }
 output.innerHTML = slider.value;
 
-// create div grids
-for (let i = 0; i < num; i++) {
-  for (let j = 0; j < num; j++) {
-    const div = document.createElement('div');
-    div.setAttribute(`style`, `height: calc(100%/${num})`);
-    div.setAttribute(`style`, `width: calc(100%/${num}`);
-    container.appendChild(div);
+// set up initial display upon first load
+setUpGrids(num);
+hoverColor();
+
+// reset grid upon change of slider value
+slider.onchange = function() {
+  //remove all child nodes of the container first
+  while(container.hasChildNodes() ){
+    container.removeChild(container.lastChild);
   }
- }
- hoverColor();
+  setUpGrids(slider.value); 
+  hoverColor();
+}
 
  //function that changes div color uponed being hovered
 function hoverColor() {
@@ -31,4 +35,15 @@ function hoverColor() {
     });
   }
 
+  //function to set up grids
+function setUpGrids(size) {
+  for (let i = 0; i < size; i++) {
+    for (let j = 0; j < size; j++) {
+      const div = document.createElement('div');
+      div.setAttribute(`style`, `height: calc(100%/${size})`);
+      div.setAttribute(`style`, `width: calc(100%/${size}`);
+      container.appendChild(div);
+    }   
+  }
+}
 
