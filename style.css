@@ -4,16 +4,12 @@ body {
     display:flex;
     flex-direction: column;
     justify-content: center;
-    align-self: center;
+    align-items: center;
 }
 
 h1 {
     text-align: center;
 }  
-
-/*div:hover {
-    background-color: black;
-}*/
 
 * {
     box-sizing: border-box;
@@ -22,19 +18,12 @@ h1 {
   .container {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    width: 400px;
+    height: 400px;
   }
   
   .container>div {
     border: 1px solid #D3D3D3;
-    height: 25px;
-    width: 25px;
-  }
-  
-  .container>div:nth-child(17n+1) {
-    width: 110%;
-    border: 0;
-    height: 0;
   }
   
   .slidecontainer {
@@ -42,11 +31,12 @@ h1 {
     flex-direction: column;
     display: flex;
     justify-content: center;
+    align-items: center;
   }
   
   .slider {
     -webkit-appearance: none;
-    width: 100%;
+    width: 50%;
     height: 10px;
     border-radius: 5px;
     background: #d3d3d3;
@@ -55,6 +45,8 @@ h1 {
     -webkit-transition: .2s;
     transition: opacity .2s;
     margin-top: 52px;
+    margin-right: auto;
+    margin-left: auto;
   }
   
   .slider:hover {
